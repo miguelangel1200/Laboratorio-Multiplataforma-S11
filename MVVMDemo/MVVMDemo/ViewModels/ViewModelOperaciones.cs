@@ -10,6 +10,21 @@ namespace MVVMDemo.ViewModels
     {
 
         #region  Atributos
+        string message;
+        public string Message
+        {
+            get { return message; }
+            set
+            {
+                if (message != value)
+                {
+                    message = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
         int valorA;
         public int ValorA
         {
@@ -55,6 +70,8 @@ namespace MVVMDemo.ViewModels
         #endregion
 
         public ICommand Sumar { protected set; get; }
+        public ICommand Dividir { protected set; get; }
+
 
 
         public ViewModelOperaciones()
@@ -62,6 +79,15 @@ namespace MVVMDemo.ViewModels
             Sumar = new Command(() =>
             {
                 ResultadoSuma = ValorA + ValorB;
+            });
+
+            Dividir = new Command(() =>
+            {
+                if (ValorB==0)
+                {
+                    Message = "No puedes dividir entre0";
+                }
+
             });
 
         }       
