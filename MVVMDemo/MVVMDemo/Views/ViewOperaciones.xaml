@@ -3,12 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MVVMDemo.Views.ViewOperaciones">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry  Text="{Binding ValorA}"></Entry>
-            <Entry Text="{Binding ValorB}" ></Entry>
-            <Button Text="Sumar" Command="{Binding Sumar}" ></Button>
-            <Label Text="{Binding ResultadoSuma}"></Label>
-            
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text ="Calculadora" HorizontalOptions="Center" FontAttributes ="Bold" TextColor="#FF5733"/>
+            <StackLayout Padding="10" BackgroundColor="#6E1F8C">
+                <Entry Placeholder="Ingrese un Número" Text="{Binding ValueA}"></Entry>
+                <Entry Placeholder="Ingrese un Número" Text="{Binding ValueB}" ></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Sumar" Command="{Binding Sumar}" ></Button>
+                <Button Text="Restar" Command="{Binding Restar}" ></Button>
+                <Button Text="Multiplicar" Command="{Binding Multiplicar}" ></Button>
+                <Button Text="Dividir" Command="{Binding Dividir}" ></Button>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Resultado de la operacion es: " FontAttributes ="Bold" TextColor="#FF5733"/>
+                <Label Text="{Binding Answerd}"/>
+            </StackLayout>
+
+            <Label Text="{Binding Mensaje}" TextColor="Red" FontAttributes ="Bold"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
